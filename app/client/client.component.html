@@ -1,0 +1,41 @@
+<div>
+    <h1>{{titre}}</h1>
+
+    <div *ngIf="enrClient">
+        <!--<div class="form-group">
+            <label for="nom">Nom</label>
+            <input type="text" class="form-control" required [(ngModel)]="model.nom" name="nom" #nom="ngModel">
+            <span [hidden]="nom.valid" class="alert alert-danger">Vous devez entrer un nom !</span>
+        </div>-->
+        <div class="form-group">
+            <label>nom :</label>
+            <input type="text" class="form-control" placeholder="Obligatoire"
+                 [(ngModel)]="enrClient.nom">
+        </div>
+        <div class="form-group">
+            <label for="prenom">Prénom :</label>
+            <input type="text" class="form-control"
+                 [(ngModel)]="enrClient.prenom">
+        </div>
+        <div class="form-group">
+            <label for="age">Age :</label>
+            <input type="number" class="form-control"
+                 [(ngModel)]="enrClient.age">
+        </div>
+        <div class="form-group">
+            <label for="age">Caution :</label>
+            <input type="number" class="form-control"
+                 ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01"
+                 [(ngModel)]="enrClient.caution">
+        </div>
+        <div>
+            <button (click)="onSubmit()">Valider</button>
+            <button (click)="ajouterClient()" type="button" class="btn btn-default" >Nouveau client</button>
+            <button (click)="supprimerClient()" type="button" class="btn btn-default" >Supprimer</button>
+        </div>
+        <div>
+            <button (click)="setPrecedent()" type="button" class="btn btn-default" >Rec</button>
+            <button (click)="setSuivant()" type="button" class="btn btn-default" >Suiv</button>
+        </div>
+    </div>
+</div>
